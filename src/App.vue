@@ -22,11 +22,23 @@
             <v-list-tile-title>Contact</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile  @click="navTo('/hardware')">
+          <v-list-tile-action>
+            <v-icon>info</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Hardware Info</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>CVTRon</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>fa-github</v-icon>
+      </v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
@@ -53,6 +65,11 @@ export default {
   data: () => ({
     drawer: null
   }),
+  methods: {
+    navTo (name) {
+      this.$router.push(name)
+    }
+  },
   props: {
     source: String
   }
