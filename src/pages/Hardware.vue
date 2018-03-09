@@ -9,7 +9,7 @@
             <v-divider v-else-if="item.divider" :inset="item.inset" :key="index"></v-divider>
             <v-list-tile avatar v-else :key="item.title">
               <v-list-tile-avatar>
-                <avatar :username=item.title></avatar>
+                {{ item.avatar }}
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title v-html="item.title"></v-list-tile-title>
@@ -22,25 +22,44 @@
 </template>
 
 <script>
-import Avatar from '@/components/Avatar'
+import { getHardwareInfo } from '@/services'
 export default {
   data: () => ({
-      items:[]
+    items: []
   }),
-  components: {
-    Avatar
+  created () {
+    this.fetchData()
   },
-  mounted() {
-      this.items = [
+  methods: {
+    fetchData () {
+      let self = this
+      getHardwareInfo().then(function (res) {
+        res = res.data.result
+        console.log(res)
+        self.items = [
           {
-              'title':'CPU',
-              'subtitle':'A useless CPU'
+            'avatar': 'CPU',
+            'title': res.cpu[0].model_name,
+            'subtitle': res.cpu[0].model_name + ' * ' + res.cpu.length + ' Cores'
           },
           {
-              'title':'GPU',
-              'subtitle':'NVIDIA Geforce 1070',
+            'avatar': 'GPU',
+            'title': res.gpu[0].gpu_name,
+            'subtitle': res.gpu[0].memTotal + 'MB Memory'
+          },
+          {
+            'avatar': 'MEM',
+            'title': res.mem,
+            'subtitle': res.mem
           }
-      ]
+        ]
+      }).then(function (err) {
+        console.log(err)
+      })
+    }
+  },
+  mounted () {
+
   }
 }
 </script>
@@ -48,4 +67,3 @@ export default {
 <style scoped>
 
 </style>
-
