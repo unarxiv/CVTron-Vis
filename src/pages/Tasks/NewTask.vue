@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import * as FilePond from 'filepond'
+import { classificationPond } from '@/services/filepond'
 
 export default {
   data () {
@@ -45,11 +45,7 @@ export default {
     }
   },
   mounted () {
-    const pond = FilePond.create({
-      multiple: true,
-      name: 'filepond'
-    })
-    document.getElementById('upload').appendChild(pond.element)
+    document.getElementById('upload').appendChild(classificationPond.element)
   }
 }
 </script>
