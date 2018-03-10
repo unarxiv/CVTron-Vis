@@ -20,7 +20,7 @@
         <small>Use Web Based Tester to verify your model</small>
     </v-stepper-step>
     <v-stepper-content step="3">
-      <input type="file">
+      <div id="upload"></div>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
@@ -36,11 +36,20 @@
 </template>
 
 <script>
+import * as FilePond from 'filepond'
+
 export default {
   data () {
     return {
       current_step: 1
     }
+  },
+  mounted () {
+    const pond = FilePond.create({
+      multiple: true,
+      name: 'filepond'
+    })
+    document.getElementById('upload').appendChild(pond.element)
   }
 }
 </script>
