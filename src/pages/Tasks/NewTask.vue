@@ -20,7 +20,7 @@
         <small>Use Web Based Tester to verify your model</small>
     </v-stepper-step>
     <v-stepper-content step="3">
-      <div id="upload"></div>
+        <input type="file" v-on:change="onFileChange"> Upload
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
@@ -36,16 +36,26 @@
 </template>
 
 <script>
-import { classificationPond } from '@/services/filepond'
-
+import { classify } from '@/services'
+import fileInput from '@/components/file-input'
 export default {
   data () {
     return {
-      current_step: 1
+      filename: '',
+      current_step: 1,
+      formdata: ''
     }
   },
+  components: {
+    fileInput
+  },
   mounted () {
-    document.getElementById('upload').appendChild(classificationPond.element)
+  },
+  methods: {
+    onFileChange (e) {
+      let file = e.target.files[0]
+      classify(file)
+    }
   }
 }
 </script>
