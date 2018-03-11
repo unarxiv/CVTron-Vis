@@ -1,6 +1,13 @@
 # cvtron-vis
 
-> The Web Dashboard and Visualization Tookit for CVTRon
+> The Web Dashboard and Visualization Tookit for CVTRon.
+
+It is designed for online model designing, visualizing, testing and selecting.
+
+# ScreeShots
+![Hardware Inspector.png](https://i.loli.net/2018/03/11/5aa4de8f803fe.png)
+
+![Classification.png](https://i.loli.net/2018/03/11/5aa4de9044ee9.png)
 
 ## Build Setup
 
