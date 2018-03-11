@@ -4,7 +4,7 @@
 
 It is designed for online model designing, visualizing, testing and selecting.
 
-# ScreeShots
+## Screenshots
 ![Hardware Inspector.png](https://i.loli.net/2018/03/11/5aa4de8f803fe.png)
 
 ![Classification.png](https://i.loli.net/2018/03/11/5aa4de9044ee9.png)
