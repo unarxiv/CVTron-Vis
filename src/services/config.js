@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 class Configure {
   // Configure Class
   // It should be Singleton
@@ -44,6 +46,7 @@ class Configure {
     if (cvtronConfig) {
       this.fromJSON(JSON.parse(cvtronConfig))
     }
+    axios.defaults.baseURL = config.getHostString()
   }
 }
 
