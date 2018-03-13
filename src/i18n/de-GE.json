@@ -1,0 +1,18 @@
+{
+    "settings": {
+        "general": {
+            "title": "Allgemeines",
+            "ipaddr": "Entfernte Adresse",
+            "port": "Remote Port"
+        },
+        "appearence": {
+            "title": "Aussehen"
+        }
+    },
+    "menus": {
+        "home": "Zuhause",
+        "jobs": "Aufgabe",
+        "settings": "die Einstellungen",
+        "hardware": "Hardware Informationen"
+    }
+}

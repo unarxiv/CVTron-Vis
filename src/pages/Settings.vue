@@ -9,7 +9,7 @@
         <v-text-field
           v-model="host"
           name="input-ipaddr"
-          label="IP Address"
+          :label="$t('settings.general.ipaddr')"
           id="ip-addr"
         ></v-text-field>
         </v-flex>
@@ -19,7 +19,7 @@
         <v-text-field
           v-model="port"
           name="input-ipport"
-          label="Port"
+          :label="$t('settings.general.port')"
           id="ip-port"
         ></v-text-field>
         </v-flex>
@@ -49,12 +49,14 @@
 
 <script>
 import { config } from '@/services/config'
+
 export default {
   data () {
     return {
       items: [
-        'English(en)',
-        '中文(简体)(zh)'
+        'English',
+        '中文(简体)',
+        'Deutschland'
       ],
       host: config.getHost(),
       port: config.getPort(),

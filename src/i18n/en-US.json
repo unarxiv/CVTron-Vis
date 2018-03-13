@@ -1,10 +1,18 @@
 {
-    "settings":{
+    "settings": {
         "general": {
-            "title": "General"
+            "title": "General",
+            "ipaddr": "Remote Address",
+            "port": "Remote Port"
         },
         "appearence": {
             "title": "Appearence"
         }
+    },
+    "menus": {
+        "home": "Home",
+        "jobs": "Jobs",
+        "settings": "Settings",
+        "hardware": "Hardware Info"
     }
 }

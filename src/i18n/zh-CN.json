@@ -1,10 +1,18 @@
 {
-    "settings":{
+    "settings": {
         "general": {
-            "title": "通用"
+            "title": "通用",
+            "ipaddr": "远程地址",
+            "port": "远程端口"
         },
         "appearence": {
             "title": "外观"
         }
+    },
+    "menus": {
+        "home": "主页",
+        "jobs": "任务",
+        "settings": "设置",
+        "hardware": "硬件信息"
     }
 }

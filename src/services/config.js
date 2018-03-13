@@ -1,4 +1,6 @@
 import axios from 'axios'
+import i18n from '@/i18n'
+import map from '@/i18n/map'
 
 class Configure {
   // Configure Class
@@ -6,6 +8,7 @@ class Configure {
   constructor () {
     this.BASE_URL = 'http://192.168.1.4'
     this.PORT = '9090'
+    this.LANG = 'English'
   }
   getInstance () {
     return this
@@ -55,6 +58,7 @@ class Configure {
       this.fromJSON(JSON.parse(cvtronConfig))
     }
     axios.defaults.baseURL = config.getHostString()
+    i18n.locale = map[config.getLang()]
   }
 }
 
