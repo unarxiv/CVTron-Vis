@@ -2,7 +2,7 @@
 <div>
   <v-expansion-panel>
     <v-expansion-panel-content>
-      <div slot="header">General</div>
+      <div slot="header">{{ $t("settings.general.title") }}</div>
       <v-card>
         <v-layout row justify-center>
         <v-flex xs6>
@@ -27,9 +27,18 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">Appearence</div>
+      <div slot="header">{{ $t("settings.appearence.title") }}</div>
       <v-card>
-        <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
+        <v-layout row justify-center>
+        <v-flex xs6>
+        <v-select
+          :items="items"
+          v-model="language"
+          label="Select"
+          single-line
+        ></v-select>
+        </v-flex>
+        </v-layout>
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>
@@ -43,8 +52,13 @@ import { config } from '@/services/config'
 export default {
   data () {
     return {
+      items: [
+        'English(en)',
+        '中文(简体)(zh)'
+      ],
       host: config.getHost(),
-      port: config.getPort()
+      port: config.getPort(),
+      language: config.getLang()
     }
   },
   mounted () {
@@ -53,6 +67,7 @@ export default {
     saveSettings () {
       config.setHost(this.host)
       config.setPort(this.port)
+      config.setLang(this.language)
       config.save()
     }
   }

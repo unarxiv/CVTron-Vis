@@ -1,5 +1,8 @@
 # cvtron-vis
 
+[![Build Status](https://travis-ci.org/cv-group/cvtron-vis.svg?branch=master)](https://travis-ci.org/cv-group/cvtron-vis)
+[![Coverage Status](https://coveralls.io/repos/github/cv-group/cvtron-vis/badge.svg?branch=master)](https://coveralls.io/github/cv-group/cvtron-vis?branch=master)
+
 > The Web Dashboard and Visualization Tookit for CVTron.
 
 It is designed for online model designing, visualizing, testing and selecting.

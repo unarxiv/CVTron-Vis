@@ -25,16 +25,24 @@ class Configure {
   getPort () {
     return this.PORT
   }
+  getLang () {
+    return this.LANG
+  }
+  setLang (lang) {
+    this.LANG = lang
+  }
   toJSON () {
     let configJson = {
       'BASE_URL': this.BASE_URL,
-      'PORT': this.PORT
+      'PORT': this.PORT,
+      'LANG': this.LANG
     }
     return JSON.stringify(configJson)
   }
   fromJSON (json) {
     this.BASE_URL = json.BASE_URL
     this.PORT = json.PORT
+    this.LANG = json.LANG
   }
   save () {
     console.log('[cvtron]: save config to localstorage')
