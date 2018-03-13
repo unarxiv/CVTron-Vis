@@ -7,6 +7,7 @@
         <v-layout row justify-center>
         <v-flex xs6>
         <v-text-field
+          v-model="host"
           name="input-ipaddr"
           label="IP Address"
           id="ip-addr"
@@ -16,6 +17,7 @@
         <v-layout row justify-center>
         <v-flex xs6>
         <v-text-field
+          v-model="port"
           name="input-ipport"
           label="Port"
           id="ip-port"
@@ -31,20 +33,28 @@
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>
-  <v-btn color="info">Save</v-btn>
+  <v-btn color="info" @click="saveSettings">Save</v-btn>
   <v-btn color="Warning">Cancel</v-btn>
 </div>
 </template>
 
 <script>
+import { config } from '@/services/config'
 export default {
   data () {
     return {
+      host: config.getHost(),
+      port: config.getPort()
     }
   },
   mounted () {
   },
   methods: {
+    saveSettings () {
+      config.setHost(this.host)
+      config.setPort(this.port)
+      config.save()
+    }
   }
 }
 </script>

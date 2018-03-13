@@ -15,18 +15,40 @@ class Configure {
     return this.BASE_URL
   }
   getHostString () {
-    console.log(this.BASE_URL + ':' + this.PORT)
     return this.BASE_URL + ':' + this.PORT
   }
   setPort (port) {
     this.PORT = port
   }
-  getPort (port) {
-    return this.port
+  getPort () {
+    return this.PORT
+  }
+  toJSON () {
+    let configJson = {
+      'BASE_URL': this.BASE_URL,
+      'PORT': this.PORT
+    }
+    return JSON.stringify(configJson)
+  }
+  fromJSON (json) {
+    this.BASE_URL = json.BASE_URL
+    this.PORT = json.PORT
+  }
+  save () {
+    console.log('[cvtron]: save config to localstorage')
+    localStorage.setItem('cvtron-config', this.toJSON())
+  }
+  load () {
+    console.info('[cvtron]: load config from localstorage')
+    let cvtronConfig = localStorage.getItem('cvtron-config')
+    if (cvtronConfig) {
+      this.fromJSON(JSON.parse(cvtronConfig))
+    }
   }
 }
 
 let config = new Configure()
+config.load()
 
 export {
   config
