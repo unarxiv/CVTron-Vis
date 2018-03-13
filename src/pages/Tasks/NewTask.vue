@@ -20,7 +20,7 @@
         <small>Use Web Based Tester to verify your model</small>
     </v-stepper-step>
     <v-stepper-content step="3">
-        <classification></classification>
+        <Classification></Classification>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import classification from '@/components/Tasks/classification'
+import Classification from '@/components/Tasks/Classification'
 export default {
   data () {
     return {
@@ -47,7 +47,7 @@ export default {
     }
   },
   components: {
-    classification
+    Classification
   },
   mounted () {
   },

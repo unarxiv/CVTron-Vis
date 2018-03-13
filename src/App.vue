@@ -42,7 +42,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>CVTRon</v-toolbar-title>
+      <v-toolbar-title>CVTron Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>fa-github</v-icon>
@@ -62,7 +62,7 @@
       </v-container>
     </v-content>
     <v-footer color="indigo" app>
-      <span class="white--text">&copy; CVTRon Team</span>
+      <span class="white--text">&copy; CVTron Team</span>
     </v-footer>
   </v-app>
 </template>

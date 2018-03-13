@@ -35,7 +35,6 @@ export default {
       let self = this
       getHardwareInfo().then(function (res) {
         res = res.data.result
-        console.log(res)
         self.items = [
           {
             'avatar': 'CPU',

@@ -1,6 +1,6 @@
 # cvtron-vis
 
-> The Web Dashboard and Visualization Tookit for CVTRon.
+> The Web Dashboard and Visualization Tookit for CVTron.
 
 It is designed for online model designing, visualizing, testing and selecting.
 

@@ -1,7 +1,7 @@
 {
   "name": "cvtron-vis",
   "version": "1.0.0",
-  "description": "The Web Dashboard and Visualization Tookit for CVTRon",
+  "description": "The Web Dashboard and Visualization Tookit for CVTron",
   "author": "Xiaozhe Yaoi",
   "private": true,
   "scripts": {
