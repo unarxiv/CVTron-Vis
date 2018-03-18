@@ -14,5 +14,10 @@
         "jobs": "任务",
         "settings": "设置",
         "hardware": "硬件信息"
+    },
+    "tasks": {
+        "dashboard":{
+            "log":"完整日志"
+        }
     }
 }
