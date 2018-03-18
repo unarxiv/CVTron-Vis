@@ -1,11 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Hardware from '@/pages/Hardware'
-import Settings from '@/pages/Settings'
-import List from '@/pages/Tasks/List'
-import NewTask from '@/pages/Tasks/NewTask'
-import Monitor from '@/pages/Tasks/Monitor'
 
 Vue.use(Router)
 
@@ -14,27 +8,27 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: () => import('@/components/HelloWorld')
     }, {
       path: '/hardware',
       name: 'Hardware',
-      component: Hardware
+      component: () => import('@/pages/Hardware')
     }, {
       path: '/settings',
       name: 'Settings',
-      component: Settings
+      component: () => import('@/pages/Settings')
     }, {
       path: '/tasks',
       name: 'List',
-      component: List
+      component: () => import('@/pages/Tasks/List')
     }, {
       path: '/tasks/create',
       name: 'newTask',
-      component: NewTask
+      component: () => import('@/pages/Tasks/NewTask')
     }, {
       path: '/tasks/board',
       name: 'task_dashboard',
-      component: Monitor
+      component: () => import('@/pages/Tasks/Monitor')
     }
   ]
 })

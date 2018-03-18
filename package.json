@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "chart.js": "^2.7.2",
     "filepond": "^1.0.8",
     "vue": "^2.5.2",
+    "vue-chartjs": "^3.2.1",
     "vue-i18n": "^7.5.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.3"
@@ -70,6 +72,7 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^4.1.1",
     "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.0"
   },

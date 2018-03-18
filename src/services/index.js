@@ -1,7 +1,8 @@
 import { getHardwareInfo } from './hardware'
-import { classify } from './tasks'
+import { classify, getLog } from './tasks'
 
 export {
   getHardwareInfo,
-  classify
+  classify,
+  getLog
 }

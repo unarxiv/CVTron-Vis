@@ -5,10 +5,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import i18n from '@/i18n'
+import { config } from '@/services/config'
+
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 Vue.use(Vuetify)
+
+config.load()
 
 /* eslint-disable no-new */
 new Vue({

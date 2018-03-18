@@ -11,6 +11,15 @@ function classify (image) {
   })
 }
 
+function getLog (logfilename) {
+  return new Promise((resolve, reject) => {
+    axios.get('static/log/' + logfilename).then(function (res) {
+      resolve(res)
+    })
+  })
+}
+
 export {
-  classify
+  classify,
+  getLog
 }

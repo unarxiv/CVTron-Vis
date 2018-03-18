@@ -71,6 +71,7 @@ export default {
       config.setPort(this.port)
       config.setLang(this.language)
       config.save()
+      config.load()
     }
   }
 }

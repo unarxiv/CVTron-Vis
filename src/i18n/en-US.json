@@ -16,8 +16,9 @@
         "hardware": "Hardware Info"
     },
     "tasks": {
-        "dashboard":{
-            "log":"Full Log"
+        "dashboard": {
+            "log": "Full Log",
+            "config": "Config"
         }
     }
 }
