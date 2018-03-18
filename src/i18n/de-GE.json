@@ -14,5 +14,10 @@
         "jobs": "Aufgabe",
         "settings": "die Einstellungen",
         "hardware": "Hardware Informationen"
+    },
+    "tasks": {
+        "dashboard":{
+            "log":"Vollständiges Protokoll"
+        }
     }
 }

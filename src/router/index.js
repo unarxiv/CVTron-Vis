@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Hardware from '@/pages/Hardware'
 import Settings from '@/pages/Settings'
-import Jobs from '@/pages/Tasks/Jobs'
+import List from '@/pages/Tasks/List'
 import NewTask from '@/pages/Tasks/NewTask'
+import Monitor from '@/pages/Tasks/Monitor'
 
 Vue.use(Router)
 
@@ -23,13 +24,17 @@ export default new Router({
       name: 'Settings',
       component: Settings
     }, {
-      path: '/jobs',
-      name: 'Jobs',
-      component: Jobs
+      path: '/tasks',
+      name: 'List',
+      component: List
     }, {
-      path: '/task/create',
+      path: '/tasks/create',
       name: 'newTask',
       component: NewTask
+    }, {
+      path: '/tasks/board',
+      name: 'task_dashboard',
+      component: Monitor
     }
   ]
 })

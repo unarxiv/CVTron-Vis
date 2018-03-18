@@ -14,5 +14,10 @@
         "jobs": "Jobs",
         "settings": "Settings",
         "hardware": "Hardware Info"
+    },
+    "tasks": {
+        "dashboard":{
+            "log":"Full Log"
+        }
     }
 }
