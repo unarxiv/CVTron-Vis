@@ -5,10 +5,27 @@ function classify (image) {
     let payload = new FormData()
     payload.append('ufile', image)
     console.log(payload)
-    axios.post('classify', payload).then(function (res) {
+    axios.post('classifier/classify', payload).then(function (res) {
       resolve(res)
     })
   })
+}
+
+function detection (image) {
+  return new Promise((resolve, reject) => {
+    let payload = new FormData()
+    
+  })
+}
+
+function segmentation (image) {
+  return new Promise((resolve, reject) => {
+
+  })
+}
+
+function _inference_call (endpoint, image) {
+  return ''
 }
 
 function getLog (logfilename) {

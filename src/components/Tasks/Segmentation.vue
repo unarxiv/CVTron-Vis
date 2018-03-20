@@ -6,17 +6,7 @@
       <br>
       <input type="file" ref="fileInput" v-on:change="onFileChange">
       <img id="input_image" alt="Waiting" class="upload_classify_image"/>
-      <v-data-table
-        :headers="headers"
-        :items="result"
-        hide-actions
-        class="elevation-1"
-      >
-      <template slot="items" slot-scope="props">
-      <td class="text-xs-left">{{ props.item.type }}</td>
-      <td class="text-xs-left">{{ props.item.prob }}</td>
-    </template>
-      </v-data-table>
+      <img id="output_image" alt="Waiting" class="segmented_image"/>
   </v-card>
 </template>
 
