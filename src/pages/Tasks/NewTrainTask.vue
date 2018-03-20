@@ -16,19 +16,18 @@
       <v-btn color="primary" @click.native="current_step = 3">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
-    <v-stepper-step step="3" :complete="current_step > 3">Test your Model
-        <small>Use Web Based Tester to verify your model</small>
+    <v-stepper-step step="3" :complete="current_step > 3">Upload Dataset
     </v-stepper-step>
     <v-stepper-content step="3">
-        <Classification></Classification>
-        <Detection></Detection>
+        <CreateTrain></CreateTrain>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
-    <v-stepper-step step="4">Build Endpoint
-        <small>View your endpoint for usage of current model</small>
+    <v-stepper-step step="4">Training Log
+        <small>View your training process</small>
     </v-stepper-step>
     <v-stepper-content step="4">
+      <Train></Train>
       <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
       <v-btn color="primary" @click.native="current_step = 1">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
@@ -37,8 +36,8 @@
 </template>
 
 <script>
-import Classification from '@/components/Tasks/Classification'
-import Detection from '@/components/Tasks/Detection'
+import CreateTrain from '@/components/Tasks/CreateTrain'
+import Train from '@/components/Tasks/Train'
 export default {
   data () {
     return {
@@ -49,8 +48,8 @@ export default {
     }
   },
   components: {
-    Classification,
-    Detection
+    CreateTrain,
+    Train
   },
   mounted () {
   },
