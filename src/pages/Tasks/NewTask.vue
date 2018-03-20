@@ -21,6 +21,7 @@
     </v-stepper-step>
     <v-stepper-content step="3">
         <Classification></Classification>
+        <Detection></Detection>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
@@ -37,6 +38,7 @@
 
 <script>
 import Classification from '@/components/Tasks/Classification'
+import Detection from '@/components/Tasks/Detection'
 export default {
   data () {
     return {
@@ -47,7 +49,8 @@ export default {
     }
   },
   components: {
-    Classification
+    Classification,
+    Detection
   },
   mounted () {
   },
