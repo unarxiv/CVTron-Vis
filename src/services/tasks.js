@@ -1,31 +1,25 @@
 import axios from 'axios'
 
-function classify (image) {
+function _inferenceCall (endpoint, image) {
   return new Promise((resolve, reject) => {
     let payload = new FormData()
     payload.append('ufile', image)
-    console.log(payload)
-    axios.post('classifier/classify', payload).then(function (res) {
+    axios.post(endpoint, payload).then(function (res) {
       resolve(res)
     })
   })
 }
 
-function detection (image) {
-  return new Promise((resolve, reject) => {
-    let payload = new FormData()
-    
-  })
+function classify (image) {
+  return _inferenceCall('classifier/classify', image)
 }
 
-function segmentation (image) {
-  return new Promise((resolve, reject) => {
-
-  })
+function detect (image) {
+  return _inferenceCall('detector/detect', image)
 }
 
-function _inference_call (endpoint, image) {
-  return ''
+function segment (image) {
+  return _inferenceCall('segmentor/segment', image)
 }
 
 function getLog (logfilename) {
@@ -38,5 +32,7 @@ function getLog (logfilename) {
 
 export {
   classify,
-  getLog
+  getLog,
+  segment,
+  detect
 }

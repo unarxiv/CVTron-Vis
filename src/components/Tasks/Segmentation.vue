@@ -6,12 +6,12 @@
       <br>
       <input type="file" ref="fileInput" v-on:change="onFileChange">
       <img id="input_image" alt="Waiting" class="upload_classify_image"/>
-      <img id="output_image" alt="Waiting" class="segmented_image"/>
+      <img id="output_image" alt="Waiting" class="upload_classify_image"/>
   </v-card>
 </template>
 
 <script>
-import { classify } from '@/services'
+import { segment } from '@/services'
 export default {
   data () {
     return {
@@ -42,20 +42,19 @@ export default {
       }
     },
     onFileChange (e) {
-      let self = this
       let file = e.target.files[0]
       if (window.FileReader) {
         var reader = new FileReader()
         reader.onload = (function (theFile) {
           return function (e) {
             document.getElementById('input_image').setAttribute('src', e.target.result)
+            document.getElementById('output_image').setAttribute('src', e.target.result)
           }
         })(file)
         reader.readAsDataURL(file)
       }
-      classify(file).then(function (res) {
-        self.result = res.data.result
-        console.log(self.result)
+      segment(file).then(function (res) {
+        console.log(res)
       })
     }
   }
@@ -68,6 +67,6 @@ export default {
     left: -99999px;
   }
   .upload_classify_image {
-    max-width: 100%;
+    max-width: 50%;
   }
 </style>

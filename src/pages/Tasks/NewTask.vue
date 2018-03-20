@@ -27,6 +27,7 @@
     <v-stepper-content step="3">
         <Classification v-if="task_type==='classification'"></Classification>
         <Detection v-if="task_type==='detection'"></Detection>
+        <Segmentation v-if="task_type==='segmentation'"></Segmentation>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
@@ -44,6 +45,7 @@
 <script>
 import Classification from '@/components/Tasks/Classification'
 import Detection from '@/components/Tasks/Detection'
+import Segmentation from '@/components/Tasks/Segmentation'
 export default {
   data () {
     return {
@@ -52,12 +54,13 @@ export default {
       formdata: '',
       result: [],
       task_type: '',
-      model_type: '',
+      model_type: ''
     }
   },
   components: {
     Classification,
-    Detection
+    Detection,
+    Segmentation
   },
   mounted () {
   },
@@ -66,12 +69,12 @@ export default {
       this.task_type = taskName
       this.current_step = 2
     },
-    choose_model_type (model_type) {
-      this.model_type = model_type
+    choose_model_type (modelType) {
+      this.model_type = modelType
       this.current_step = 3
     },
     step_back () {
-      if (this.current_step >=1 ) {
+      if (this.current_step >= 1) {
         this.current_step -= 1
       }
     }
