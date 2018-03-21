@@ -45,18 +45,6 @@ export default {
       }
     },
     onFileChange (e) {
-      let self = this
-      let file = e.target.files[0]
-      let uplaodPath = null
-      if (window.FileReader) {
-        var reader = new FileReader()
-        reader.onload = (function (theFile) {
-          return function (e) {
-            document.getElementById('upload_file_name').setV
-          }
-        })(file)
-        reader.readAsDataURL(file)
-      }
     }
   }
 }

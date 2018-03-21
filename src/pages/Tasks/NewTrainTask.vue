@@ -5,25 +5,44 @@
       <small>You want classification, detection or segmentation?</small>
     </v-stepper-step>
     <v-stepper-content step="1">
-      <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
-      <v-btn color="primary" @click.native="current_step = 2">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
+      <v-layout row>
+        <v-btn color="info" @click="choose_task_type('classification')">Classification</v-btn>
+        <v-btn color="info" @click="choose_task_type('detection')">Detection</v-btn>
+        <v-btn color="info" @click="choose_task_type('segmentation')">Segmentation</v-btn>
+      </v-layout>
     </v-stepper-content>
-    <v-stepper-step step="2" :complete="current_step > 2">Select a Network Structure
+    <v-stepper-step step="2" :complete="current_step > 2">Config a Network Structure
         <small>Use existed models or create your own</small></v-stepper-step>
     <v-stepper-content step="2">
-      <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
-      <v-btn color="primary" @click.native="current_step = 3">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
+      <v-layout row>
+      <v-btn color="info" @click="choose_model_type('predefined')">Pre-Defined</v-btn>
+      <v-btn color="info" @click="choose_model_type('upload')">Upload</v-btn>
+      <a href="" class="upload_guide">Upload Guidelines</a>
+      </v-layout>
+      <v-layout row v-for="(key, value) in config" :key="key">
+      <v-flex xs4>
+        <v-subheader>{{ value }}</v-subheader>
+      </v-flex>
+      <v-flex xs8>
+        <v-text-field
+          name="input-1"
+          :label=value
+          :id=value
+          v-model=config[value]
+        ></v-text-field>
+      </v-flex>
+      </v-layout>
+      <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
     <v-stepper-step step="3" :complete="current_step > 3">Upload Dataset
     </v-stepper-step>
     <v-stepper-content step="3">
-        <CreateTrain></CreateTrain>
-      <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
+          <v-btn v-model="filename"
+                  @click.native="onFocus"
+                  ref="fileTextField">UPLOAD</v-btn>
+      <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
-    <v-stepper-step step="4">Training Log
+    <v-stepper-step step="4">Monitor Training Logs
         <small>View your training process</small>
     </v-stepper-step>
     <v-stepper-content step="4">
@@ -36,25 +55,47 @@
 </template>
 
 <script>
-import CreateTrain from '@/components/Tasks/CreateTrain'
 import Train from '@/components/Tasks/Train'
+import { getTrainConfig } from '@/services'
+
 export default {
   data () {
     return {
       filename: '',
       current_step: 1,
       formdata: '',
-      result: []
+      result: [],
+      config: {}
     }
   },
   components: {
-    CreateTrain,
     Train
   },
   mounted () {
   },
   methods: {
-
+    choose_task_type (taskName) {
+      this.task_type = taskName
+      this.current_step = 2
+    },
+    choose_model_type (modelType) {
+      let self = this
+      this.model_type = modelType
+      if (this.model_type === 'predefined' && this.task_type === 'segmentation') {
+        getTrainConfig().then(function (res) {
+          self.config = res.data
+          self.current_step = 3
+        })
+      }
+    },
+    onFocus () {
+      this.current_step = 4
+    },
+    step_back () {
+      if (this.current_step >= 1) {
+        this.current_step -= 1
+      }
+    }
   }
 }
 </script>

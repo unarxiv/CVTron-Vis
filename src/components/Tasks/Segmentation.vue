@@ -48,13 +48,14 @@ export default {
         reader.onload = (function (theFile) {
           return function (e) {
             document.getElementById('input_image').setAttribute('src', e.target.result)
-            document.getElementById('output_image').setAttribute('src', e.target.result)
           }
         })(file)
         reader.readAsDataURL(file)
       }
       segment(file).then(function (res) {
-        console.log(res)
+        let filename = res.data
+        let filepath = 'http://192.168.1.4:9090/static/img/' + filename
+        document.getElementById('output_image').setAttribute('src', filepath)
       })
     }
   }

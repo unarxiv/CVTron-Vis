@@ -30,9 +30,18 @@ function getLog (logfilename) {
   })
 }
 
+function getTrainConfig () {
+  return new Promise((resolve, reject) => {
+    axios.get('segmentor/get_train_config').then(function (res) {
+      resolve(res)
+    })
+  })
+}
+
 export {
   classify,
   getLog,
   segment,
-  detect
+  detect,
+  getTrainConfig
 }
