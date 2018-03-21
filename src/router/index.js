@@ -26,6 +26,10 @@ export default new Router({
       name: 'newTask',
       component: () => import('@/pages/Tasks/NewTask')
     }, {
+      path: '/tasks/train',
+      name: 'newTrainTask',
+      component: () => import('@/pages/Tasks/NewTrainTask')
+    }, {
       path: '/tasks/board',
       name: 'task_dashboard',
       component: () => import('@/pages/Tasks/Monitor')
