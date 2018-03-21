@@ -30,7 +30,6 @@ function segment (image) {
   return _inferenceCall('segmentor/segment', image)
 }
 
-
 function getLog (logfilename) {
   return _getRequest('static/log')
 }

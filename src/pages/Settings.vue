@@ -66,7 +66,7 @@ export default {
   },
   mounted () {
   },
-  watch : {
+  watch: {
     host (newVal) {
       this.checkNodeStatus()
     },
