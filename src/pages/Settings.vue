@@ -49,6 +49,7 @@
 
 <script>
 import { config } from '@/services/config'
+import { getNodeStatus } from '@/services'
 
 export default {
   data () {
@@ -65,6 +66,14 @@ export default {
   },
   mounted () {
   },
+  watch : {
+    host (newVal) {
+      this.checkNodeStatus()
+    },
+    port (newVal) {
+      this.checkNodeStatus()
+    }
+  },
   methods: {
     saveSettings () {
       config.setHost(this.host)
@@ -72,9 +81,15 @@ export default {
       config.setLang(this.language)
       config.save()
       config.load()
+    },
+    checkNodeStatus () {
+      getNodeStatus().then(function (res) {
+        console.log(res.data)
+      })
     }
   }
 }
+
 </script>
 
 <style scoped>

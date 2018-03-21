@@ -12,6 +12,7 @@
 
 <script>
 import { segment } from '@/services'
+import { config } from '@/services/config'
 export default {
   data () {
     return {
@@ -54,7 +55,7 @@ export default {
       }
       segment(file).then(function (res) {
         let filename = res.data
-        let filepath = 'http://192.168.1.4:9090/static/img/' + filename
+        let filepath = config.getHost() + ':' + config.getPort() + '/static/img/' + filename
         document.getElementById('output_image').setAttribute('src', filepath)
       })
     }

@@ -1,5 +1,10 @@
 import { getHardwareInfo } from './hardware'
-import { classify, getLog, detect, segment, getTrainConfig } from './tasks'
+import { classify, 
+         getLog, 
+         detect, 
+         segment, 
+         getNodeStatus,
+         getTrainConfig } from './tasks'
 
 export {
   getHardwareInfo,
@@ -7,5 +12,6 @@ export {
   getLog,
   detect,
   segment,
-  getTrainConfig
+  getTrainConfig,
+  getNodeStatus
 }

@@ -10,6 +10,14 @@ function _inferenceCall (endpoint, image) {
   })
 }
 
+function _getRequest (endpoint) {
+  return new Promise((resolve, reject) => {
+    axios.get(endpoint).then(function (res) {
+      resolve(res)
+    })
+  })
+}
+
 function classify (image) {
   return _inferenceCall('classifier/classify', image)
 }
@@ -22,20 +30,17 @@ function segment (image) {
   return _inferenceCall('segmentor/segment', image)
 }
 
+
 function getLog (logfilename) {
-  return new Promise((resolve, reject) => {
-    axios.get('static/log/' + logfilename).then(function (res) {
-      resolve(res)
-    })
-  })
+  return _getRequest('static/log')
 }
 
 function getTrainConfig () {
-  return new Promise((resolve, reject) => {
-    axios.get('segmentor/get_train_config').then(function (res) {
-      resolve(res)
-    })
-  })
+  return _getRequest('segmentor/get_train_config')
+}
+
+function getNodeStatus () {
+  return _getRequest('resource/status')
 }
 
 export {
@@ -43,5 +48,6 @@ export {
   getLog,
   segment,
   detect,
-  getTrainConfig
+  getTrainConfig,
+  getNodeStatus
 }
