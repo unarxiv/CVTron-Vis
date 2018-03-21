@@ -31,7 +31,7 @@ function segment (image) {
 }
 
 function getLog (logfilename) {
-  return _getRequest('static/log')
+  return _getRequest('static/log/' + logfilename)
 }
 
 function getTrainConfig () {

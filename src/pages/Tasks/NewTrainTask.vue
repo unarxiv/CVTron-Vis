@@ -47,7 +47,6 @@
     </v-stepper-step>
     <v-stepper-content step="4">
       <Train></Train>
-      <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
       <v-btn color="primary" @click.native="current_step = 1">Continue</v-btn>
       <v-btn flat>Cancel</v-btn>
     </v-stepper-content>
