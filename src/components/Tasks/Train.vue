@@ -64,19 +64,21 @@ export default {
   },
   computed: {
     headers () {
-      let keys = Object.keys(this.steps[0])
-      let heads = []
-      for (let i in keys) {
-        heads.push(
-          {
-            text: keys[i],
-            value: keys[i],
-            align: 'right',
-            sortable: true
-          }
-        )
+      if(this.steps[0]) {
+        let keys = Object.keys(this.steps[0])
+        let heads = []
+        for (let i in keys) {
+          heads.push(
+            {
+              text: keys[i],
+              value: keys[i],
+              align: 'right',
+              sortable: true
+            }
+          )
+        }
+        return heads
       }
-      return heads
     }
   },
   created () {
