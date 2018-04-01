@@ -10,7 +10,7 @@ export default {
     let port = this.getQueryString('port')
     console.log(ip)
     console.log(port)
-    config.setHost(ip)
+    config.setHost('http://' + ip)
     config.setPort(port)
     config.save()
     this.$router.push({
