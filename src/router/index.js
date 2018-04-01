@@ -33,6 +33,10 @@ export default new Router({
       path: '/tasks/board',
       name: 'task_dashboard',
       component: () => import('@/pages/Tasks/Monitor')
+    }, {
+      path: '/enterprise/autoconfig',
+      name: 'AutoConfigure',
+      component: () => import('@/pages/AutoConfigure')
     }
   ]
 })

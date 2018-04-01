@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     headers () {
-      if(this.steps[0]) {
+      if (this.steps[0]) {
         let keys = Object.keys(this.steps[0])
         let heads = []
         for (let i in keys) {
