@@ -40,7 +40,6 @@ export default {
         return false
       }
       let ctx = c.getContext('2d')
-      ctx.strokeStyle = 'red'
       for (let index in this.result) {
         let xmin = this.result[index]['x_min']
         let xmax = this.result[index]['x_max']
@@ -49,6 +48,7 @@ export default {
         let width = xmax - xmin
         let height = ymax - ymin
         setTimeout(function () {
+          ctx.strokeStyle = 'rgba(255, 0, 0, 5)'
           ctx.strokeRect(xmin, ymax, width, height)
         }, 200)
       }

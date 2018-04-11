@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex>
-      <v-card>
+      <v-card class="cam_card">
         <v-card-media :src=url :height=camSize>
         </v-card-media>
         <v-card-title primary-title>
@@ -13,7 +13,7 @@
         <v-card-actions>
           <v-btn flat color="primary">Full Screen</v-btn>
           <v-btn flat @click="resize('240px')" color="primary">Small</v-btn>
-          <v-btn flat @click="resize('320px')" color="primary">Mid</v-btn>
+          <v-btn flat @click="resize('320px')" color="primary">Medium</v-btn>
           <v-btn flat @click="resize('480px')" color="primary">Large</v-btn>
         </v-card-actions>
       </v-card>
@@ -42,5 +42,7 @@ export default {
 </script>
 
 <style>
-
+.cam_card {
+  width: auto
+}
 </style>

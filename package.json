@@ -17,7 +17,7 @@
     "chart.js": "^2.7.2",
     "filepond": "^1.0.8",
     "vue": "^2.5.2",
-    "vue-chartjs": "^3.2.1",
+    "vue-chartjs": "^3.3.1",
     "vue-i18n": "^7.5.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.3"

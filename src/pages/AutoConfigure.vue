@@ -8,10 +8,12 @@ export default {
   mounted () {
     let ip = this.getQueryString('ip')
     let port = this.getQueryString('port')
+    let userId = this.getQueryString('uid')
     console.log(ip)
     console.log(port)
     config.setHost('http://' + ip)
     config.setPort(port)
+    config.setUser(userId)
     config.save()
     this.$router.push({
       path: '/'

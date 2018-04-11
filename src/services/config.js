@@ -47,6 +47,26 @@ class Configure {
     this.PORT = json.PORT
     this.LANG = json.LANG
   }
+  getUser () {
+    return localStorage.getItem('cvtron_ent_user')
+  }
+  setUser (userId) {
+    localStorage.setItem('cvtron_ent_user', userId)
+  }
+  saveCamsToCloud (cams) {
+    let payload = {
+      'cams': cams
+    }
+    axios.put(
+      'https://cvtron-enterprise.firebaseio.com/cams/' + this.getUser() + '/cams.json',
+      payload
+    ).then(function (res) {
+      console.log(res)
+    })
+  }
+  loadCamsFromCloud () {
+
+  }
   save () {
     console.log('[cvtron]: save config to localstorage')
     localStorage.setItem('cvtron-config', this.toJSON())

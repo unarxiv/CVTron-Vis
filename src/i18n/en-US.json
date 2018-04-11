@@ -13,7 +13,8 @@
         "home": "Home",
         "jobs": "Jobs",
         "settings": "Settings",
-        "hardware": "Hardware Info"
+        "hardware": "Hardware Info",
+        "camera": "Camera"
     },
     "tasks": {
         "dashboard": {

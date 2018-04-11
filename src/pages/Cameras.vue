@@ -12,11 +12,13 @@
             ></camera>
         </v-flex>
       </v-layout>
+      <v-btn @click="writeCams()">Write</v-btn>
   </v-container>
 </template>
 
 <script>
 import Camera from '@/components/Camera'
+import { config } from '@/services/config'
 export default {
   data: () => ({
     cameras: [
@@ -29,6 +31,11 @@ export default {
   }),
   components: {
     Camera
+  },
+  methods: {
+    writeCams () {
+      config.saveCamsToCloud(this.cameras)
+    }
   }
 }
 </script>
