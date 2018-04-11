@@ -37,6 +37,11 @@ export default new Router({
       path: '/enterprise/autoconfig',
       name: 'AutoConfigure',
       component: () => import('@/pages/AutoConfigure')
+    },
+    {
+      path: '/camera',
+      name: 'Camera',
+      component: () => import('@/pages/Cameras')
     }
   ]
 })

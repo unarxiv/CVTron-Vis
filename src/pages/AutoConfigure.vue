@@ -14,7 +14,7 @@ export default {
     config.setPort(port)
     config.save()
     this.$router.push({
-        path: '/'
+      path: '/'
     })
   },
   methods: {
