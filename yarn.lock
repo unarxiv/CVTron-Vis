@@ -3073,9 +3073,9 @@ filename-regex@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/filename-regex/download/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
 
-filepond@^1.0.8:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/filepond/-/filepond-1.2.7.tgz#c719797d3c62691f8a190114d54411151fecd70d"
+filepond@^1.2.11:
+  version "1.2.11"
+  resolved "https://registry.yarnpkg.com/filepond/-/filepond-1.2.11.tgz#f4a878ad3c717017bb5348b9f8d763f3fd09128a"
 
 fileset@^2.0.2:
   version "2.0.3"
@@ -8036,7 +8036,7 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-chartjs@^3.2.1:
+vue-chartjs@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.3.1.tgz#fb08dc244da316e385910401daf16874f52ac1fc"
 
