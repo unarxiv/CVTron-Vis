@@ -37,3 +37,9 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Cross Browser Tests
+
+![browserstack-logo-600x315.png](https://i.loli.net/2018/05/08/5af0788fc521b.png)
+
+We are using [BrowserStack](https://www.browserstack.com/) for cross browser tests.
