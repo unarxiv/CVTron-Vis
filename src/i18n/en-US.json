@@ -12,6 +12,7 @@
     "menus": {
         "home": "Home",
         "jobs": "Jobs",
+        "trainjobs": "Train Jobs",
         "settings": "Settings",
         "hardware": "Hardware Info",
         "camera": "Camera"

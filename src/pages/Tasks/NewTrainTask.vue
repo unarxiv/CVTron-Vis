@@ -17,9 +17,9 @@
       <v-layout row>
       <v-btn color="info" @click="choose_model_type('predefined')">Pre-Defined</v-btn>
       <v-btn color="info" @click="choose_model_type('upload')">Upload</v-btn>
-      <a href="" class="upload_guide">Upload Guidelines</a>
+      <a href="https://cvtron.unarxiv.org/zh/guide/data-format.html" class="upload_guide">Upload Guidelines</a>
       </v-layout>
-      <v-layout row v-for="(key, value) in config" :key="key">
+      <v-layout row v-for="(key, value) in config" :key="value">
       <v-flex xs4>
         <v-subheader>{{ value }}</v-subheader>
       </v-flex>
@@ -32,7 +32,8 @@
         ></v-text-field>
       </v-flex>
       </v-layout>
-      <v-btn flat @click="step_back()">Cancel</v-btn>
+      <v-btn v-if="step_3_continue_visibility" color="info" @click="step_forward()">Continue</v-btn>
+      <v-btn v-if="step_3_continue_visibility" flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
     <v-stepper-step step="3" :complete="current_step > 3">Upload Dataset
     </v-stepper-step>
@@ -64,7 +65,8 @@ export default {
       current_step: 1,
       formdata: '',
       result: [],
-      config: {}
+      config: {},
+      step_3_continue_visibility: false
     }
   },
   components: {
@@ -83,7 +85,7 @@ export default {
       if (this.model_type === 'predefined' && this.task_type === 'segmentation') {
         getTrainConfig().then(function (res) {
           self.config = res.data
-          self.current_step = 3
+          self.step_3_continue_visibility = true
         })
       }
     },
@@ -94,11 +96,19 @@ export default {
       if (this.current_step >= 1) {
         this.current_step -= 1
       }
+    },
+    step_forward () {
+      if (this.current_step <= 4) {
+        this.current_step += 1
+      }
     }
   }
 }
 </script>
 
 <style>
-
+.upload_guide {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 </style>

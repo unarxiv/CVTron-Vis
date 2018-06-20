@@ -14,12 +14,20 @@
             <v-list-tile-title>{{ $t("menus.home") }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="navTo('/jobs')">
+        <v-list-tile @click="navTo('/tasks/create')">
           <v-list-tile-action>
             <v-icon>work</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>{{ $t("menus.jobs") }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="navTo('/tasks/train')">
+          <v-list-tile-action>
+            <v-icon>work</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t("menus.trainjobs") }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile @click="navTo('/camera')">
@@ -63,7 +71,6 @@
         >
           <v-flex text-xs-center>
             <router-view>
-
             </router-view>
           </v-flex>
         </v-layout>

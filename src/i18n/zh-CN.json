@@ -12,12 +12,15 @@
     "menus": {
         "home": "主页",
         "jobs": "任务",
+        "trainjobs": "训练任务",
         "settings": "设置",
-        "hardware": "硬件信息"
+        "hardware": "硬件信息",
+        "camera": "摄像头"
     },
     "tasks": {
         "dashboard":{
-            "log":"完整日志"
+            "log":"完整日志",
+            "config":"配置"
         }
     }
 }
