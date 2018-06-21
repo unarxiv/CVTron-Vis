@@ -52,7 +52,7 @@ function getNodeStatus () {
   return _getRequest('resource/status')
 }
 
-function start_train (taskType, config) {
+function startTrain (taskType, config) {
   return _postRequest(taskType + '/start_train', config)
 }
 
@@ -63,5 +63,5 @@ export {
   detect,
   getTrainConfig,
   getNodeStatus,
-  start_train
+  startTrain
 }

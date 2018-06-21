@@ -57,7 +57,7 @@
 
 <script>
 import Train from '@/components/Tasks/Train'
-import { getTrainConfig, start_train } from '@/services'
+import { getTrainConfig, startTrain } from '@/services'
 
 export default {
   data () {
@@ -104,8 +104,7 @@ export default {
       }
     },
     start () {
-      console.log('--')
-      start_train(this.task_type, this.config)
+      startTrain(this.task_type, this.config)
     }
   }
 }

@@ -2,7 +2,7 @@ import { getHardwareInfo } from './hardware'
 import { classify,
   getLog,
   detect,
-  start_train,
+  startTrain,
   segment,
   getNodeStatus,
   getTrainConfig } from './tasks'
@@ -13,7 +13,7 @@ export {
   getLog,
   detect,
   segment,
-  start_train,
+  startTrain,
   getTrainConfig,
   getNodeStatus
 }
