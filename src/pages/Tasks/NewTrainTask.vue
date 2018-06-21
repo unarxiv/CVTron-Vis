@@ -41,6 +41,7 @@
           <v-btn v-model="filename"
                   @click.native="onFocus"
                   ref="fileTextField">UPLOAD</v-btn>
+      <v-btn color="info" @click="start()">Start</v-btn>
       <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
     <v-stepper-step step="4">Monitor Training Logs
@@ -56,7 +57,7 @@
 
 <script>
 import Train from '@/components/Tasks/Train'
-import { getTrainConfig } from '@/services'
+import { getTrainConfig, start_train } from '@/services'
 
 export default {
   data () {
@@ -101,6 +102,10 @@ export default {
       if (this.current_step <= 4) {
         this.current_step += 1
       }
+    },
+    start () {
+      console.log('--')
+      start_train(this.task_type, this.config)
     }
   }
 }

@@ -18,6 +18,16 @@ function _getRequest (endpoint) {
   })
 }
 
+function _postRequest (endpoint, data) {
+  return new Promise((resolve, reject) => {
+    axios.post(endpoint, data).then(function (res) {
+      resolve(res)
+    }).catch(function (error) {
+      reject(error)
+    })
+  })
+}
+
 function classify (image) {
   return _inferenceCall('classifier/classify', image)
 }
@@ -42,11 +52,16 @@ function getNodeStatus () {
   return _getRequest('resource/status')
 }
 
+function start_train (taskType, config) {
+  return _postRequest(taskType + '/start_train', config)
+}
+
 export {
   classify,
   getLog,
   segment,
   detect,
   getTrainConfig,
-  getNodeStatus
+  getNodeStatus,
+  start_train
 }
