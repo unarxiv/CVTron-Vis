@@ -6,9 +6,9 @@
     </v-stepper-step>
     <v-stepper-content step="1">
       <v-layout row>
-        <v-btn color="info" @click="choose_task_type('classification')">Classification</v-btn>
-        <v-btn color="info" @click="choose_task_type('detection')">Detection</v-btn>
-        <v-btn color="info" @click="choose_task_type('segmentation')">Segmentation</v-btn>
+        <v-btn color="info" @click="choose_task_type('classifier')">Classification</v-btn>
+        <v-btn color="info" @click="choose_task_type('detector')">Detection</v-btn>
+        <v-btn color="info" @click="choose_task_type('segmentor')">Segmentation</v-btn>
       </v-layout>
     </v-stepper-content>
     <v-stepper-step step="2" :complete="current_step > 2">Config a Network Structure
@@ -82,8 +82,8 @@ export default {
     choose_model_type (modelType) {
       let self = this
       this.model_type = modelType
-      if (this.model_type === 'predefined' && this.task_type === 'segmentation') {
-        getTrainConfig().then(function (res) {
+      if (this.model_type === 'predefined') {
+        getTrainConfig(this.task_type).then(function (res) {
           self.config = res.data
           self.step_3_continue_visibility = true
         })

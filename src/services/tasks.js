@@ -34,8 +34,8 @@ function getLog (logfilename) {
   return _getRequest('static/log/' + logfilename)
 }
 
-function getTrainConfig () {
-  return _getRequest('segmentor/get_train_config')
+function getTrainConfig (taskType) {
+  return _getRequest(taskType + '/get_train_config')
 }
 
 function getNodeStatus () {
