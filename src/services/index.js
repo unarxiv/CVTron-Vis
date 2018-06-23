@@ -4,6 +4,7 @@ import { classify,
   detect,
   startTrain,
   segment,
+  getInferConfig,
   getNodeStatus,
   getTrainConfig } from './tasks'
 
@@ -12,6 +13,7 @@ export {
   classify,
   getLog,
   detect,
+  getInferConfig,
   segment,
   startTrain,
   getTrainConfig,

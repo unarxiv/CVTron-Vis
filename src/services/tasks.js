@@ -56,11 +56,16 @@ function startTrain (taskType, config) {
   return _postRequest(taskType + '/start_train', config)
 }
 
+function getInferConfig (taskType) {
+  return _getRequest(taskType + '/get_infer_config')
+}
+
 export {
   classify,
   getLog,
   segment,
   detect,
+  getInferConfig,
   getTrainConfig,
   getNodeStatus,
   startTrain

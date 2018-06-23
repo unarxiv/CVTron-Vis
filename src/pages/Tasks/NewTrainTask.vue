@@ -49,8 +49,7 @@
     </v-stepper-step>
     <v-stepper-content step="4">
       <Train></Train>
-      <v-btn color="primary" @click.native="current_step = 1">Continue</v-btn>
-      <v-btn flat>Cancel</v-btn>
+      <v-btn color="primary" @click.native="current_step = 1">Complete</v-btn>
     </v-stepper-content>
   </v-stepper>
 </template>
@@ -104,6 +103,9 @@ export default {
       }
     },
     start () {
+      // navi first and then start the training
+      // cause start training may cost much time
+      this.current_step = 4
       startTrain(this.task_type, this.config)
     }
   }
