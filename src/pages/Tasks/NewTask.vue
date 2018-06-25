@@ -39,9 +39,9 @@
         <small>Use Web Based Tester to verify your model</small>
     </v-stepper-step>
     <v-stepper-content step="3">
-        <Classification v-if="task_type==='classification'"></Classification>
-        <Detection v-if="task_type==='detection'"></Detection>
-        <Segmentation v-if="task_type==='segmentation'"></Segmentation>
+        <Classification v-if="task_type==='classifier'"></Classification>
+        <Detection v-if="task_type==='detector'"></Detection>
+        <Segmentation v-if="task_type==='segmentor'"></Segmentation>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
@@ -96,6 +96,9 @@ export default {
           self.config = res.data
           self.step_3_continue_visibility = true
         })
+      } else {
+        this.model_type = modelType
+        this.current_step = 3
       }
     },
     step_forward () {
