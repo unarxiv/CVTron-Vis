@@ -40,7 +40,7 @@
     </v-stepper-step>
     <v-stepper-content step="3">
         <Classification v-if="task_type==='classifier'"></Classification>
-        <Detection v-if="task_type==='detector'"></Detection>
+        <Detection v-if="task_type==='detector'" :model_name='model_name'></Detection>
         <Segmentation v-if="task_type==='segmentor'"></Segmentation>
       <v-btn color="primary" @click.native="current_step = 4">Continue</v-btn>
       <v-btn flat @click="step_back()">Cancel</v-btn>
@@ -72,6 +72,7 @@ export default {
       result: [],
       task_type: '',
       model_type: '',
+      model_name: '',
       config: {},
       step_3_continue_visibility: false
     }
@@ -102,6 +103,8 @@ export default {
       }
     },
     step_forward () {
+      this.model_name = this.config.model_name
+      console.log(this.config.model_name)
       if (this.current_step <= 4) {
         this.current_step += 1
       }

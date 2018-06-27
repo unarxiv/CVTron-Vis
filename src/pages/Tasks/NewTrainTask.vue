@@ -106,7 +106,11 @@ export default {
       // navi first and then start the training
       // cause start training may cost much time
       this.current_step = 4
-      startTrain(this.task_type, this.config)
+      let trainFinalConfig = {
+        'config': this.config,
+        'file': 'test'
+      }
+      startTrain(this.task_type, trainFinalConfig)
     }
   }
 }

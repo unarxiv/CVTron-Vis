@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { detect } from '@/services'
+
 export default {
   data () {
     return {
@@ -28,6 +30,9 @@ export default {
   },
   mounted () {
   },
+  props: [
+    'model_name'
+  ],
   methods: {
     onFocus () {
       if (!this.disabled) {
@@ -54,6 +59,7 @@ export default {
       }
     },
     onFileChange (e) {
+      let self = this
       let file = e.target.files[0]
       if (window.FileReader) {
         var reader = new FileReader()
@@ -71,6 +77,10 @@ export default {
         })(file)
         reader.readAsDataURL(file)
       }
+      detect(self.model_name, file).then(function (res) {
+        console.log(res)
+        self.result = res
+      })
       this.labelTarget()
     }
   }

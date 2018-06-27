@@ -32,8 +32,8 @@ function classify (image) {
   return _inferenceCall('classifier/classify', image)
 }
 
-function detect (image) {
-  return _inferenceCall('detector/detect', image)
+function detect (modelName,image) {
+  return _inferenceCall('detector/detect?model_name=' + modelName, image)
 }
 
 function segment (image) {
