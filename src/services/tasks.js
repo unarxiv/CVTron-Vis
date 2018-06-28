@@ -60,6 +60,10 @@ function getInferConfig (taskType) {
   return _getRequest(taskType + '/get_infer_config')
 }
 
+function getTaskList () {
+  return _getRequest('resource/tasks')
+}
+
 export {
   classify,
   getLog,
@@ -68,5 +72,6 @@ export {
   getInferConfig,
   getTrainConfig,
   getNodeStatus,
-  startTrain
+  startTrain,
+  getTaskList
 }

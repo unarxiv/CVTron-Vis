@@ -6,12 +6,14 @@ import { classify,
   segment,
   getInferConfig,
   getNodeStatus,
+  getTaskList,
   getTrainConfig } from './tasks'
 
 export {
   getHardwareInfo,
   classify,
   getLog,
+  getTaskList,
   detect,
   getInferConfig,
   segment,

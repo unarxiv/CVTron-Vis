@@ -30,6 +30,14 @@
             <v-list-tile-title>{{ $t("menus.trainjobs") }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="navTo('/tasks/list')">
+          <v-list-tile-action>
+            <v-icon>work</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t("menus.jobslist") }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
         <v-list-tile @click="navTo('/camera')">
           <v-list-tile-action>
             <v-icon>camera_enhance</v-icon>

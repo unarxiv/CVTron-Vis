@@ -11,8 +11,9 @@
     },
     "menus": {
         "home": "Home",
-        "jobs": "Jobs",
-        "trainjobs": "Train Jobs",
+        "jobs": "Task",
+        "jobslist": "History Tasks",
+        "trainjobs": "Train Task",
         "settings": "Settings",
         "hardware": "Hardware Info",
         "camera": "Camera"

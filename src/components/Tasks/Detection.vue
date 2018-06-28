@@ -54,7 +54,7 @@ export default {
         let height = ymax - ymin
         setTimeout(function () {
           ctx.strokeStyle = 'rgba(255, 0, 0, 5)'
-          ctx.strokeRect(xmin, ymax, width, height)
+          ctx.strokeRect(xmin, ymin, width, height)
         }, 200)
       }
     },
@@ -78,10 +78,9 @@ export default {
         reader.readAsDataURL(file)
       }
       detect(self.model_name, file).then(function (res) {
-        console.log(res)
-        self.result = res
+        self.result = res.data
+        self.labelTarget()
       })
-      this.labelTarget()
     }
   }
 }

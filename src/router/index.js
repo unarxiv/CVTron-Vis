@@ -42,6 +42,10 @@ export default new Router({
       path: '/camera',
       name: 'Camera',
       component: () => import('@/pages/Cameras')
-    }
+    },{
+      path: '/tasks/list',
+      name: 'TasksList',
+      component: () => import('@/pages/TasksList')
+    },
   ]
 })
