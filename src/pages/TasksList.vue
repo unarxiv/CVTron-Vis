@@ -19,7 +19,7 @@
                 <v-icon>pause</v-icon>
             </td>
             </template>
-        </v-data-table>        
+        </v-data-table>
       </v-layout>
   </v-container>
 </template>
@@ -28,23 +28,23 @@
 import { getTaskList } from '@/services'
 export default {
   data () {
-      return {
-        headers: [
-          {
-            text: 'ID',
-            align: 'center',
-            sortable: true,
-            value: 'id'
-          },
-          { text: 'PID', value: 'pid', align: 'left'},
-          { text: 'Type', value: 'type',align: 'left'},
-          { text: 'LogFile', value: 'logFile', align: 'left' },
-          { text: 'ModelFile', value: 'modelFile',align: 'left'},
-          { text: 'Status', value: 'status',align: 'left'},
-          { text: 'Operation'}
-        ],
-        tasks: []
-      }
+    return {
+      headers: [
+        {
+          text: 'ID',
+          align: 'center',
+          sortable: true,
+          value: 'id'
+        },
+        { text: 'PID', value: 'pid', align: 'left' },
+        { text: 'Type', value: 'type', align: 'left' },
+        { text: 'LogFile', value: 'logFile', align: 'left' },
+        { text: 'ModelFile', value: 'modelFile', align: 'left' },
+        { text: 'Status', value: 'status', align: 'left' },
+        { text: 'Operation' }
+      ],
+      tasks: []
+    }
   },
   created () {
     this.fetchData()
@@ -52,19 +52,19 @@ export default {
   methods: {
     fetchData () {
       let self = this
-      getTaskList().then(function (res) {
-        res = res.data
-        self.tasks = res
-        console.log(res)
-      }).then(function (err) {
-        console.log(err)
-      })
+      getTaskList()
+        .then(function (res) {
+          res = res.data
+          self.tasks = res
+          console.log(res)
+        })
+        .then(function (err) {
+          console.log(err)
+        })
     }
-  },
-
+  }
 }
 </script>
 
 <style>
-
 </style>

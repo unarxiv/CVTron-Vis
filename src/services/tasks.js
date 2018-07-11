@@ -28,11 +28,23 @@ function _postRequest (endpoint, data) {
   })
 }
 
+function upload (endpoint, dataset) {
+  return new Promise((resolve, reject) => {
+    let payload = new FormData()
+    payload.append('ufile', dataset)
+    axios.post(endpoint, payload).then(function (res) {
+      resolve(res)
+    }).catch(function (err) {
+      reject(err)
+    })
+  })
+}
+
 function classify (image) {
   return _inferenceCall('classifier/classify', image)
 }
 
-function detect (modelName,image) {
+function detect (modelName, image) {
   return _inferenceCall('detector/detect?model_name=' + modelName, image)
 }
 
@@ -41,7 +53,9 @@ function segment (image) {
 }
 
 function getLog (logfilename) {
-  return _getRequest('static/log/' + logfilename)
+  console.log('getting remote log')
+  console.log('static/' + logfilename)
+  return _getRequest('static/' + logfilename)
 }
 
 function getTrainConfig (taskType) {
@@ -67,6 +81,7 @@ function getTaskList () {
 export {
   classify,
   getLog,
+  upload,
   segment,
   detect,
   getInferConfig,

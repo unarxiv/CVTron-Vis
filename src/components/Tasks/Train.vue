@@ -1,5 +1,6 @@
 <template>
 <div>
+  <v-btn @click="readRemoteLog()"><v-icon>refresh</v-icon></v-btn>
   <v-progress-linear value="10" height="20" color="info"></v-progress-linear>
   <v-expansion-panel>
     <v-expansion-panel-content>
@@ -53,6 +54,7 @@
 import { getLog } from '@/services'
 import LineChart from '@/components/Charts/LineChart'
 export default {
+  props: ['url'],
   data () {
     return {
       steps: [],
@@ -84,6 +86,16 @@ export default {
   created () {
     this.readRemoteLog()
   },
+  ready: function () {
+    console.log('ready')
+    let self = this
+    setInterval(function(){
+      self.readRemoteLog()
+    }, 5000)
+  },
+  updated: function() {
+    console.log('updated')
+  },
   methods: {
     fillData (name) {
       console.log(name)
@@ -112,7 +124,7 @@ export default {
     },
     readRemoteLog () {
       let self = this
-      getLog('log.json').then(function (res) {
+      getLog(self.url).then(function (res) {
         self.log = JSON.stringify(res.data)
         self.steps = res.data
       })

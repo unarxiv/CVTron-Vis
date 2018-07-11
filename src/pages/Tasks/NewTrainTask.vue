@@ -41,14 +41,15 @@
           <v-btn v-model="filename"
                   @click.native="onFocus"
                   ref="fileTextField">UPLOAD</v-btn>
-      <v-btn color="info" @click="start()">Start</v-btn>
+                  <br/>
+      <input type="file" ref="fileInput" v-on:change="onFileChange">
       <v-btn flat @click="step_back()">Cancel</v-btn>
     </v-stepper-content>
     <v-stepper-step step="4">Monitor Training Logs
         <small>View your training process</small>
     </v-stepper-step>
     <v-stepper-content step="4">
-      <Train></Train>
+      <Train :url="log_url" v-if="log_flag"></Train>
       <v-btn color="primary" @click.native="current_step = 1">Complete</v-btn>
     </v-stepper-content>
   </v-stepper>
@@ -56,7 +57,7 @@
 
 <script>
 import Train from '@/components/Tasks/Train'
-import { getTrainConfig, startTrain } from '@/services'
+import { getTrainConfig, startTrain, upload } from '@/services'
 
 export default {
   data () {
@@ -65,7 +66,9 @@ export default {
       current_step: 1,
       formdata: '',
       result: [],
+      log_url: '',
       config: {},
+      log_flag: true,
       step_3_continue_visibility: false
     }
   },
@@ -89,8 +92,25 @@ export default {
         })
       }
     },
+    onFileChange (e) {
+      let file = e.target.files[0]
+      let endpoint = this.task_type + '/upload'
+      let self = this
+      upload(endpoint, file).then(function (res) {
+        let trainFinalConfig = {
+          'config': self.config,
+          'file': 'test'
+        }
+        self.log_url = res.data.file_id + '/log.json'
+        self.log_flag = true
+        startTrain(self.task_type, trainFinalConfig)
+        self.current_step = 4
+      })
+    },
     onFocus () {
-      this.current_step = 4
+      if (!this.disabled) {
+        this.$refs.fileInput.click()
+      }
     },
     step_back () {
       if (this.current_step >= 1) {
@@ -101,16 +121,6 @@ export default {
       if (this.current_step <= 4) {
         this.current_step += 1
       }
-    },
-    start () {
-      // navi first and then start the training
-      // cause start training may cost much time
-      this.current_step = 4
-      let trainFinalConfig = {
-        'config': this.config,
-        'file': 'test'
-      }
-      startTrain(this.task_type, trainFinalConfig)
     }
   }
 }
