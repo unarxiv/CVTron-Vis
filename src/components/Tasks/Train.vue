@@ -89,11 +89,11 @@ export default {
   ready: function () {
     console.log('ready')
     let self = this
-    setInterval(function(){
+    setInterval(function () {
       self.readRemoteLog()
     }, 5000)
   },
-  updated: function() {
+  updated: function () {
     console.log('updated')
   },
   methods: {
