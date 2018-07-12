@@ -78,6 +78,10 @@ function getTaskList () {
   return _getRequest('resource/tasks')
 }
 
+function getModels () {
+  return _getRequest('static/models.json')
+}
+
 export {
   classify,
   getLog,
@@ -88,5 +92,6 @@ export {
   getTrainConfig,
   getNodeStatus,
   startTrain,
+  getModels,
   getTaskList
 }

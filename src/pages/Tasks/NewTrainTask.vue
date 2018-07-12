@@ -17,6 +17,12 @@
       <v-layout row>
       <v-btn color="info" @click="choose_model_type('predefined')">Pre-Defined</v-btn>
       <v-btn color="info" @click="choose_model_type('upload')">Upload</v-btn>
+      <br/>
+      <v-select
+          v-if="isPredefined"
+          :items="items"
+          label="Selected Model"
+        ></v-select>
       <a href="https://cvtron.unarxiv.org/zh/guide/data-format.html" class="upload_guide">Upload Guidelines</a>
       </v-layout>
       <v-layout row v-for="(key, value) in config" :key="value">
@@ -57,7 +63,7 @@
 
 <script>
 import Train from '@/components/Tasks/Train'
-import { getTrainConfig, startTrain, upload } from '@/services'
+import { getTrainConfig, startTrain, upload, getModels } from '@/services'
 
 export default {
   data () {
@@ -67,9 +73,11 @@ export default {
       formdata: '',
       result: [],
       log_url: '',
+      items: [],
       config: {},
       log_flag: true,
-      step_3_continue_visibility: false
+      step_3_continue_visibility: false,
+      isPredefined: false,
     }
   },
   components: {
@@ -86,10 +94,23 @@ export default {
       let self = this
       this.model_type = modelType
       if (this.model_type === 'predefined') {
+        getModels().then(function (res) {
+          self.items = res.data.filter(function (each) {
+            if (each.task === self.task_type) {
+              return each
+            }
+          }).map(function (each) {
+            return each.name
+          })
+          console.log(self.items)
+        })
+        this.isPredefined = true
         getTrainConfig(this.task_type).then(function (res) {
           self.config = res.data
           self.step_3_continue_visibility = true
         })
+      } else {
+        this.isPredefined = false
       }
     },
     onFileChange (e) {
@@ -97,9 +118,10 @@ export default {
       let endpoint = this.task_type + '/upload'
       let self = this
       upload(endpoint, file).then(function (res) {
+        self.train_task_id = res.data.file_id
         let trainFinalConfig = {
           'config': self.config,
-          'file': 'test'
+          'file': self.train_task_id
         }
         self.log_url = res.data.file_id + '/log.json'
         self.log_flag = true
