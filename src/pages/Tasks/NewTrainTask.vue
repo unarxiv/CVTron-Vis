@@ -77,7 +77,7 @@ export default {
       config: {},
       log_flag: true,
       step_3_continue_visibility: false,
-      isPredefined: false,
+      isPredefined: false
     }
   },
   components: {
