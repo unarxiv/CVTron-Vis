@@ -77,7 +77,7 @@ export default {
         })(file)
         reader.readAsDataURL(file)
       }
-      detect(self.model_name, file).then(function (res) {
+      detect('b79cc2ba', file).then(function (res) {
         self.result = res.data
         self.labelTarget()
       })
