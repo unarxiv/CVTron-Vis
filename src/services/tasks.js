@@ -78,6 +78,10 @@ function getTaskList () {
   return _getRequest('resource/tasks')
 }
 
+function getModelFile (model_filename) {
+  return _getRequest('detector/get_model?model_name=' + model_filename)
+}
+
 function getModels () {
   return _getRequest('static/models.json')
 }
@@ -88,6 +92,7 @@ export {
   upload,
   segment,
   detect,
+  getModelFile,
   getInferConfig,
   getTrainConfig,
   getNodeStatus,
